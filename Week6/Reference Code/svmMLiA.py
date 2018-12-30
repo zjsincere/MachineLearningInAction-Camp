@@ -3,8 +3,12 @@ Created on Nov 4, 2010
 Chapter 5 source file for Machine Learing in Action
 @author: Peter
 '''
+
+
 from numpy import *
 from time import sleep
+import os
+
 
 def loadDataSet(fileName):
     dataMat = []; labelMat = []
@@ -14,6 +18,7 @@ def loadDataSet(fileName):
         dataMat.append([float(lineArr[0]), float(lineArr[1])])
         labelMat.append(float(lineArr[2]))
     return dataMat,labelMat
+
 
 def selectJrand(i,m):
     j=i #we want to select any J not equal to i
@@ -36,13 +41,13 @@ def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
     while (iter < maxIter):
         alphaPairsChanged = 0
         for i in range(m):
-            fXi = float(multiply(alphas,labelMat).T*(dataMatrix*dataMatrix[i,:].T)) + b
+            fXi = float(multiply(alphas,labelMat).T * (dataMatrix*dataMatrix[i,:].T)) + b
             Ei = fXi - float(labelMat[i])#if checks if an example violates KKT conditions
             if ((labelMat[i]*Ei < -toler) and (alphas[i] < C)) or ((labelMat[i]*Ei > toler) and (alphas[i] > 0)):
                 j = selectJrand(i,m)
                 fXj = float(multiply(alphas,labelMat).T*(dataMatrix*dataMatrix[j,:].T)) + b
                 Ej = fXj - float(labelMat[j])
-                alphaIold = alphas[i].copy(); alphaJold = alphas[j].copy();
+                alphaIold = alphas[i].copy(); alphaJold = alphas[j].copy()
                 if (labelMat[i] != labelMat[j]):
                     L = max(0, alphas[j] - alphas[i])
                     H = min(C, C + alphas[j] - alphas[i])
@@ -345,3 +350,7 @@ def smoPK(dataMatIn, classLabels, C, toler, maxIter):    #full Platt SMO
         elif (alphaPairsChanged == 0): entireSet = True  
         print("iteration number: %d" % iter)
     return oS.b,oS.alphas
+
+if __name__ == '__main__':
+    testRbf()
+
