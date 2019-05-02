@@ -7,7 +7,7 @@
 - 李航《统计学习方法》(链接：https://pan.baidu.com/s/1MSx407RuPCJt5KSej0Yqlg 密码：h74l)
 - 周志华《机器学习》（链接：https://pan.baidu.com/s/1wyqhvJHkI1zHph8RRsm9iw 密码：1475）
 - [机器学习该怎么入门？](https://www.zhihu.com/question/20691338/answer/446610161)
-- 本训练营的学习安排与课程任务：详见文件夹Books中的《机器学习实战作业》doc文档
+- 本训练营的学习安排与课程任务：详见Books文件夹中的《机器学习实战作业》doc文档
 
 ## 课程安排
 **总课时：14 周**
